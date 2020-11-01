@@ -1,0 +1,9 @@
+<div class="card ml-2 mt-2">
+
+  <div *ngIf="userInfo">
+    {{userInfo.firstName}} {{userInfo.lastName}}
+  </div>
+
+  <button class="btn btn-outline-dark mt-2" (click)="printTestInfo()">-----</button>
+
+</div>

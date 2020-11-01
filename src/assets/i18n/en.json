@@ -1,0 +1,13 @@
+{
+  "MAIN": {
+    "LOGIN": "Sign up",
+    "COOKIE_ACCEPT": "This website uses cookies for analytics and personalization. For further using you must agree to our use of cookies.",
+    "HELLO": "Hello, ",
+    "MUSIC": "My music",
+    "MAIN": "Main"
+  },
+  "GENERAL": {
+    "BTN_ACCEPT": "Accept",
+    "BTN_CANCEL": "Cancel"
+  }
+}

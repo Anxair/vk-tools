@@ -1,0 +1,42 @@
+<nav class="navbar navbar-dark bg-dark">
+  <img src="./assets/gerb_belarus_1991_pogona.png" width="25px" height="31px">
+  <ng-container *ngIf="selectUser">
+    <button class="color-white" mat-button routerLink="/auth">{{'MAIN.MAIN' | translate}}
+      <i-bs  class="img-center" name="person-bounding-box"></i-bs>
+    </button>
+    <button class="color-white"  mat-button routerLink="/music">{{'MAIN.MUSIC' | translate}}
+      <i-bs class="img-center" name="music-note-list"></i-bs>
+    </button>
+  </ng-container>
+  <div>
+    <button class="btn btn-outline-light mr-2" [matMenuTriggerFor]="languageMenu">
+      <i-bs name="globe"></i-bs>
+    </button>
+    <mat-menu #languageMenu="matMenu">
+      <button *ngFor="let lang of _languagePipe.getAllLanguages(), index as i" (click)="selectLanguage(lang, i)"
+              mat-menu-item
+              [ngClass]="{'highlight':(i==selectedIndex)}" class="menu-btn">
+        <img class="mr-2 flag-size" src="assets/flag/flag-{{lang}}.png">{{lang | languagePipe}}</button>
+    </mat-menu>
+    <ng-container *ngIf="selectUser; else loginButton">
+      <button class="btn btn-outline-light ml-1">{{'MAIN.HELLO' | translate}}{{selectUser}}!
+      </button>
+    </ng-container>
+    <ng-template #loginButton>
+      <button class="btn btn-outline-light ml-1" (click)="openDialogConfirm()">{{'MAIN.LOGIN' | translate}}
+        <i-bs name="door-open"></i-bs>
+      </button>
+    </ng-template>
+  </div>
+</nav>
+
+<ng-template #confirmCookie>
+  <mat-dialog-content class="mat-typography">
+    <div>{{'MAIN.COOKIE_ACCEPT' | translate}}</div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button class="btn btn-outline-light mr-2" mat-dialog-close>{{'GENERAL.BTN_CANCEL' | translate}}</button>
+    <button class="btn btn-outline-light mr-2" [mat-dialog-close]="true">{{'GENERAL.BTN_ACCEPT' | translate}}</button>
+  </mat-dialog-actions>
+</ng-template>
+

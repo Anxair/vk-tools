@@ -1,0 +1,10 @@
+<ng-container *ngFor="let song of tracks">
+  <div class="card-body">
+    <div>{{song.title}}</div>
+    <div>{{song.author}}</div>
+    <ng-container *ngIf="song.mp3!=''; else sorryBlock">
+      <a href="{{song.mp3}}" target="_blank">тык</a>
+    </ng-container>
+    <ng-template #sorryBlock>Извините, ссылка на аудио на данный момент недоступна</ng-template>
+  </div>
+</ng-container>
