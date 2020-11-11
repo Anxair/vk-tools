@@ -4,10 +4,117 @@
     "COOKIE_ACCEPT": "This website uses cookies for analytics and personalization. For further using you must agree to our use of cookies.",
     "HELLO": "Hello, ",
     "MUSIC": "My music",
-    "MAIN": "Main"
+    "MAIN": "Main",
+    "EXIT": "Sign out"
+  },
+  "USER": {
+    "GENERAL_INFO": "Basic Information",
+    "CONTACT_INFO": "Contact information",
+    "EDUCATION": "Education",
+    "CAREER": "Career",
+    "LIFE_POSITION": "Life position",
+    "PRIVATE_INFO": "Personal information",
+    "STATISTIC": "Account statistics"
+  },
+  "USER_FIELD": {
+    "SURNAME": "Surname",
+    "NAME": "Name",
+    "MIDDLE_NAME": "Middle name (or nickname)",
+    "MAIDEN_NAME": "Maiden name",
+    "BIRTH_DATE": "Birthday",
+    "RELATION": "Relationship",
+    "HOME_TOWN": "Hometown",
+    "COUNTRY": "Country",
+    "CITY": "City",
+    "SITE": "Site",
+    "VK": "VK nickname",
+    "SKYPE": "Skype",
+    "INSTAGRAM": "Instagram",
+    "TWITTER": "Twitter",
+    "FACEBOOK": "Facebook",
+    "LIVE_JOURNAL": "LiveJournal",
+    "SCHOOL": "Basic education",
+    "UNIVERSITY": "Higher education",
+    "JOB": "Place of work",
+    "ALCOHOL": "Attitude to alcohol: ",
+    "INSPIREDBY": "Sources of inspiration: ",
+    "LANGS": "Languages: ",
+    "LIFEMAIN": "The main thing in life: ",
+    "POLITICAL": "Political preferences: ",
+    "RELIGION": "Worldview: ",
+    "SMOKING": "Attitude to smoking: ",
+    "PEOPLEMAIN": "The main thing in people: ",
+    "ACTIVITIES": "Activities: ",
+    "INTERESTS": "Interests: ",
+    "MUSIC": "Favorite music: ",
+    "MOVIES": "Favorite movies: ",
+    "BOOKS": "Favorite books: ",
+    "GAMES": "Favorite games: ",
+    "TV": "Favorite TV show: ",
+    "QUOTES": "Favorite quotes: ",
+    "ABOUT": "About me: "
   },
   "GENERAL": {
     "BTN_ACCEPT": "Accept",
     "BTN_CANCEL": "Cancel"
+  },
+  "RELATION": {
+    "UNKNOWN": "Unknown",
+    "NOT_MARRIED": "Not married",
+    "HAS_FRIEND": "Has friend",
+    "BETROTHED": "Betrothed",
+    "MARRIED": "Married",
+    "COMPLICATED": "Complicated",
+    "ACTIVE_SEARCH": "Active search",
+    "IN_LOVE": "In love",
+    "CIVIL_MARRIED": "Civil married"
+  },
+  "POLITICAL": {
+    "COMMUNIST": "Communist",
+    "CONSERVATIVE": "Conservative",
+    "INDIFFERENT": "Indifferent",
+    "LIBERAL": "Liberal",
+    "LIBERTARIAN": "Libertarian",
+    "MODERATE": "Moderate",
+    "MONARCHICAL": "Monarchical",
+    "SOCIALIST": "Socialist",
+    "ULTRACONSERVATIVE": "Ultraconservative"
+  },
+  "ATTITUDE": {
+    "COMPROMISE": "Compromise",
+    "NEGATIVE": "Negative",
+    "NEUTRAL": "Neutral",
+    "POSITIVE": "Positive",
+    "SHARPLY_NEGATIVE": "Sharply negative"
+  },
+  "PEOPLE_MAIN": {
+    "BEAUTY_AND_HEALTH": "Beauty and health",
+    "COURAGE_AND_PERSEVERANCE": "Courage and perseverance",
+    "HUMOR_AND_LOVE_FOR_LIFE": "Humor and love for life",
+    "KINDNESS_AND_HONESTY": "Kindness and honesty",
+    "POWER_AND_WEALTH": "Power and wealth",
+    "SMART_AND_CREATIVE": "Smart and creative"
+  },
+  "LIFE_MAIN": {
+    "BEAUTY_AND_ART": "Beauty and art",
+    "CAREER_AND_MONEY": "Career and money",
+    "ENTERTAINMENT_AND_RECREATION": "Entertainment and recreation",
+    "FAME_AND_INFLUENCE": "Fame and influence",
+    "FAMILY_AND_CHILDREN": "Family and children",
+    "IMPROVING_THE_WORLD": "Improving the world",
+    "SCIENCE_AND_RESEARCH": "Science and research",
+    "SELF_DEVELOPMENT": "Self development"
+  },
+  "STATISTIC": {
+    "ALBUMS": "Number of photo albums: ",
+    "AUDIOS": "Number of audios: ",
+    "FOLLOWERS": "Number of followers: ",
+    "FRIENDS": "Number of friends: ",
+    "GIFTS": "Number of gifts: ",
+    "GROUPS": "Number of communities: ",
+    "ONLINEFRIENDS": "Number of online friends: ",
+    "PAGES": "Number of subscriptions: ",
+    "PHOTOS": "Number of photos: ",
+    "VIDEOS": "Number of videos: "
   }
 }

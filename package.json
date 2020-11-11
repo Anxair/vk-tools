@@ -31,7 +31,7 @@
     "ngx-cookie-service": "^10.1.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
-    "vkontakte-api": "^1.13.0",
+    "vkontakte-api": "^1.15.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {

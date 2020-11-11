@@ -8,7 +8,6 @@ import {TestService} from './services/test.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'vk';
 
   constructor(private cookieService: CookieService,
               private testService: TestService) {

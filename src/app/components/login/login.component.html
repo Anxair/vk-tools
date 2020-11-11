@@ -1,9 +1,34 @@
-<div class="card ml-2 mt-2">
+<div class="mat-card size-card">
+  <div class="row m-0 inner-card-height" *ngIf="userInfo">
+    <div class="col-4 mat-card-content">
+      <div class="text-center">
+        <img class="mt-5" src="{{userInfo.photoMax}}">
+        <div class="mat-h2">{{userInfo.firstName}} {{userInfo.lastName}}</div>
+        <mat-selection-list class="d-inline-block" #fieldInfo [multiple]="false">
+          <mat-list-option *ngFor="let field of fieldList; index as i"
+                           [ngClass]="{'highlight':(i==selectRowNumber)}"
+                           [value]="field">
+            {{field | userInfoPartPipe | translate}}
+            <mat-divider></mat-divider>
+          </mat-list-option>
+        </mat-selection-list>
+      </div>
+      <button class="btn btn-outline-dark mt-2 mb-2" (click)="printTestInfo()">-----</button>
+    </div>
 
-  <div *ngIf="userInfo">
-    {{userInfo.firstName}} {{userInfo.lastName}}
+
+    <div class="col-8 card-body overflow-auto inner-card-height">
+      <div [ngSwitch]="fieldInfo.selectedOptions.selected[0]?.value" class="mt-4">
+        <app-user-general-info *ngSwitchCase="UserInfoPartEnum.GENERAL_INFO" [user]="userInfo"></app-user-general-info>
+        <app-user-contact-info *ngSwitchCase="UserInfoPartEnum.CONTACT_INFO" [user]="userInfo"></app-user-contact-info>
+        <app-user-education-info *ngSwitchCase="UserInfoPartEnum.EDUCATION" [user]="userInfo"></app-user-education-info>
+        <app-user-career-info *ngSwitchCase="UserInfoPartEnum.CAREER" [user]="userInfo"></app-user-career-info>
+        <app-user-life-position-info *ngSwitchCase="UserInfoPartEnum.LIFE_POSITION" [user]="userInfo">
+        </app-user-life-position-info>
+        <app-user-private-info *ngSwitchCase="UserInfoPartEnum.PRIVATE_INFO" [user]="userInfo"></app-user-private-info>
+        <app-user-statistic-info *ngSwitchCase="UserInfoPartEnum.STATISTIC" [user]="userInfo"></app-user-statistic-info>
+      </div>
+    </div>
   </div>
-
-  <button class="btn btn-outline-dark mt-2" (click)="printTestInfo()">-----</button>
 
 </div>

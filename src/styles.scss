@@ -1,4 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
-@import  '~bootstrap/scss/bootstrap';
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import '~@angular/material/prebuilt-themes/purple-green.css';
+@import '~bootstrap/scss/bootstrap';
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+a {
+  color: #9c9c9c;
+}
+
+a:hover {
+  color: #f1f1f1;
+}
+
+.background-image {
+  background-image: url("assets/mirrored_squares.png");
+}
+
+.size-card {
+  height: calc(100vh - 54px);
+}

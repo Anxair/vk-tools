@@ -5,6 +5,7 @@ import {ApiProviderService} from '../../services/api-provider.service';
 import {HttpClient} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service';
 import {User} from 'vkontakte-api';
+import {UserInfoPartEnum, UserInfoPartPipe} from '../../pipes/user-info-part.pipe';
 
 @Component({
   selector: 'app-login',
@@ -14,13 +15,15 @@ import {User} from 'vkontakte-api';
 export class LoginComponent implements OnInit {
 
   userInfo: User;
+  fieldList: string[] = UserInfoPartPipe.getAllParts();
+  selectRowNumber: number;
+  UserInfoPartEnum = UserInfoPartEnum;
 
   constructor(private route: ActivatedRoute,
               private testService: TestService,
               private apiProvider: ApiProviderService,
               private _http: HttpClient,
               private cookieService: CookieService) {
-
   }
 
   ngOnInit() {
@@ -42,8 +45,11 @@ export class LoginComponent implements OnInit {
   }
 
   printTestInfo() {
-    console.log(this.testService.user + ' is service user');
-    console.log(this.userInfo + ' is component user');
+    console.log(this.userInfo);
+  }
+
+  showSelectInfo(field: string, i: number): void {
+    this.selectRowNumber = i;
   }
 }
 

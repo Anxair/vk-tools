@@ -1,13 +1,15 @@
-<nav class="navbar navbar-dark bg-dark">
-  <img src="./assets/gerb_belarus_1991_pogona.png" width="25px" height="31px">
-  <ng-container *ngIf="selectUser">
-    <button class="color-white" mat-button routerLink="/auth">{{'MAIN.MAIN' | translate}}
-      <i-bs  class="img-center" name="person-bounding-box"></i-bs>
-    </button>
-    <button class="color-white"  mat-button routerLink="/music">{{'MAIN.MUSIC' | translate}}
-      <i-bs class="img-center" name="music-note-list"></i-bs>
-    </button>
-  </ng-container>
+<nav class="navbar navbar-dark bg-dark sticky-top">
+  <div>
+    <img class="mr-3" src="./assets/gerb_belarus_1991_pogona.png" width="25px" height="31px">
+    <div class="d-inline-block" *ngIf="selectUser">
+      <button class="color-white" mat-button routerLink="/auth">{{'MAIN.MAIN' | translate}}
+        <i-bs class="img-center" name="person-bounding-box"></i-bs>
+      </button>
+      <button class="color-white" mat-button routerLink="/music">{{'MAIN.MUSIC' | translate}}
+        <i-bs class="img-center" name="music-note-list"></i-bs>
+      </button>
+    </div>
+  </div>
   <div>
     <button class="btn btn-outline-light mr-2" [matMenuTriggerFor]="languageMenu">
       <i-bs name="globe"></i-bs>
@@ -19,8 +21,12 @@
         <img class="mr-2 flag-size" src="assets/flag/flag-{{lang}}.png">{{lang | languagePipe}}</button>
     </mat-menu>
     <ng-container *ngIf="selectUser; else loginButton">
-      <button class="btn btn-outline-light ml-1">{{'MAIN.HELLO' | translate}}{{selectUser}}!
+      <button [matMenuTriggerFor]="userMenu" class="btn btn-outline-light ml-1">
+        {{'MAIN.HELLO' | translate}}{{selectUser}}!
       </button>
+      <mat-menu #userMenu="matMenu">
+        <button mat-menu-item class="menu-btn" (click)="logout()">{{'MAIN.EXIT' | translate}}</button>
+      </mat-menu>
     </ng-container>
     <ng-template #loginButton>
       <button class="btn btn-outline-light ml-1" (click)="openDialogConfirm()">{{'MAIN.LOGIN' | translate}}

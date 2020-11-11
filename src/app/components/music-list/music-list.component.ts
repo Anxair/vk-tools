@@ -11,14 +11,17 @@ import {Track} from '../../dto/Track';
 export class MusicListComponent implements OnInit {
 
   tracks: Track[] = [];
+  isDownloadTracks: boolean = false;
 
   constructor(private testService: TestService,
               private cookieService: CookieService) {
   }
 
   ngOnInit(): void {
+    this.isDownloadTracks = true;
     this.testService.getUserMusic(this.cookieService.get('user_id')).subscribe(value => {
       this.tracks = value;
+      this.isDownloadTracks = false;
     });
   }
 

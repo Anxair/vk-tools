@@ -28,10 +28,11 @@ export class MenuHeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.testService.userName.subscribe(value => this.selectUser = value);
-  }
+    this.testService.user.subscribe(value =>
+      this.selectUser = value?.firstName);
+  };
 
-  openDialogConfirm() {
+  openDialogConfirm(): void {
     if (this.cookieService.get('cookie_accept') == '') {
       this.dialog.open(this.confirmCookie).afterClosed().subscribe(value => {
         if (value) {
@@ -44,15 +45,18 @@ export class MenuHeaderComponent implements OnInit {
     }
   }
 
-  login() {
+  login(): void {
     window.location.href = 'https://oauth.vk.com/authorize?client_id=7633891&scope=friends,photos,wall,video,audio,groups,offline&redirect_uri=http://localhost:4200/auth&display=popup&response_type=token';
   }
 
-  selectLanguage(lang: string, i: number) {
+  selectLanguage(lang: string, i: number): void {
     this.selectedIndex = i;
     this.language = lang.toLowerCase();
     this.cookieService.set('lang', lang.toLowerCase());
     this.translate.use(this.language);
   }
 
+  logout(): void {
+    this.testService.logout();
+  }
 }
