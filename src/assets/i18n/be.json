@@ -51,7 +51,10 @@
   },
   "GENERAL": {
     "BTN_ACCEPT": "Прыняць",
-    "BTN_CANCEL": "Адмена"
+    "BTN_CANCEL": "Адмена",
+    "SEARCH": "Шукаць...",
+    "RELOAD": "Абнавіць"
+
   },
   "RELATION": {
     "UNKNOWN": "Не пазначана",

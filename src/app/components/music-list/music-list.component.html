@@ -1,17 +1,53 @@
-<div class="wrapper" *ngIf="isDownloadTracks">
-  <div class="inner">
-    <mat-spinner color="warn" [value]="75"></mat-spinner>
+<div class="mat-card p-0 size-card">
+
+
+  <div class="row m-0 inner-card-height ">
+    <div class="card-body col-6 inner-card-height overflow-auto">
+      <div class="ml-3 mat-form-field-flex justify-content-sm-between">
+        <mat-form-field class="example-form-field">
+          <mat-label>{{'GENERAL.SEARCH'|translate}}</mat-label>
+          <input matInput type="text" [(ngModel)]="searchText" (ngModelChange)="searchTrack($event)">
+          <button mat-button *ngIf="searchText" matSuffix mat-icon-button aria-label="Clear" (click)="searchText=''">
+            <mat-icon (click)="searchTrack('')">close</mat-icon>
+          </button>
+        </mat-form-field>
+        <div class="mr-4">
+          <button class="mr-2 btn btn-outline-light" (click)="selectAllSong()">
+            <i-bs name="check2-all"></i-bs>
+          </button>
+          <button class="mr-2 btn btn-outline-light" *ngIf="!selected" (click)="showTrackInPlayList()">
+            <i-bs name="check2-circle"></i-bs>
+          </button>
+          <button class="mr-2 btn btn-outline-light" *ngIf="selected" (click)="showAllTracks()">
+            <i-bs name="check2-circle"></i-bs>
+          </button>
+          <button class=" btn btn-outline-light" (click)="reloadMusicList()">{{'GENERAL.RELOAD'|translate}}</button>
+        </div>
+
+      </div>
+      <div class="row m-0 inner-card-height wrapper" *ngIf="isDownloadTracks, else music">
+        <mat-spinner class="inner" [value]="75"></mat-spinner>
+      </div>
+      <ng-template #music>
+        <mat-selection-list #songs [multiple]="false">
+          <ng-container *ngFor="let song of filteredTracks">
+            <mat-list-option [value]="song" (click)="formPlaylist(song)" *ngIf="song.visible">
+              <div class="mat-form-field-flex">
+                <div>{{song.title|symbolReplacer: song.author}}</div>
+                <i-bs *ngIf="song.addToPlayList" class="ml-3 " name="check2"></i-bs>
+              </div>
+              <mat-divider></mat-divider>
+            </mat-list-option>
+          </ng-container>
+        </mat-selection-list>
+      </ng-template>
+    </div>
+
+    <div class="card-body col-6 inner-card-height overflow-auto">
+      <ngx-audio-player #audioPlayerComponent [playlist]="playList"
+                        [pageSizeOptions]="[10, 5, 15]"></ngx-audio-player>
+    </div>
   </div>
 </div>
 
-<ng-container *ngFor="let song of tracks">
 
-    <div class="card-body">
-      <div>{{song.title}}</div>
-      <div>{{song.author}}</div>
-      <ng-container *ngIf="song.mp3!=''; else sorryBlock">
-        <a href="{{song.mp3}}" target="_blank">тык</a>
-      </ng-container>
-      <ng-template #sorryBlock>Извините, ссылка на аудио на данный момент недоступна</ng-template>
-    </div>
-</ng-container>

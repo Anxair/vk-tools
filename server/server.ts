@@ -1,8 +1,11 @@
 import express from 'express';
 import {routes} from './routes';
+import getMp3New from './get-mp3-new';
 
 const app = express();
-const {ParseAudios} = require('get-audio-vk');
+const rewire = require("rewire");
+let vkAudioPatch = rewire('./node_modules/get-audio-vk/dist/index.js');
+vkAudioPatch.__set__("get_mp3_1", getMp3New);
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -25,9 +28,9 @@ export async function getMusic(id: string) {
   const login: string = '+375336933211'; // phone or email
   const pass: string = 'freedom2020';
   const yourId: number = 620854736; // your VK ID
-  const parse = new ParseAudios({login, pass, yourId, headless: true}); // headless: false if u wanna watch process
+  const parse = new vkAudioPatch.ParseAudios({login, pass, yourId, headless: true}); // headless: false if u wanna watch process
   await parse.launch();
-  const tracks: Track[] = await parse.run(id, 20); // 1. target-id, 2. max-tracks
+  const tracks: Track[] = await parse.run(id, 50); // 1. target-id, 2. max-tracks
   await parse.exit();
   console.log(tracks);
   return tracks;

@@ -32,13 +32,19 @@ import {
   CountryNamePipe, GenerateFieldForTranslatePipe, GroupNamePipe,
   JobInfoPipe, PersonalTransformPipe,
   ReversePipe,
-  SchoolExtendedInfoPipe,
+  SchoolExtendedInfoPipe, SymbolReplacerPipe,
   UniversityExtendedInfoPipe
 } from './pipes/utils.pipe';
 import {PoliticalPipe} from './pipes/political.pipe';
 import {AttitudePipe} from './pipes/attitude.pipe';
 import {PeopleMainPipe} from './pipes/people-main.pipe.';
 import {LifeMainPipe} from './pipes/life-main.pipe';
+import {NgxAudioPlayerModule} from 'ngx-audio-player';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {FormsModule} from '@angular/forms';
+import {MatBadgeModule} from '@angular/material/badge';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -73,7 +79,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     PersonalTransformPipe,
     AttitudePipe,
     PeopleMainPipe,
-    LifeMainPipe
+    LifeMainPipe,
+    SymbolReplacerPipe
   ],
   imports: [
     routing,
@@ -87,6 +94,11 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     MatButtonModule,
     MatListModule,
     MatProgressSpinnerModule,
+    NgxAudioPlayerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatBadgeModule,
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {
@@ -94,7 +106,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    FormsModule
   ],
   providers: [
     CookieService,
@@ -103,7 +116,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     TranslatePipe,
     AttitudePipe,
     PeopleMainPipe,
-    LifeMainPipe
+    LifeMainPipe,
+    SymbolReplacerPipe,
   ],
   bootstrap: [AppComponent]
 })

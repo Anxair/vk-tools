@@ -146,3 +146,23 @@ export class PersonalTransformPipe implements PipeTransform {
     return obj.value;
   }
 }
+
+@Pipe({name: 'symbolReplacer'})
+export class SymbolReplacerPipe implements PipeTransform {
+  transform(name: string, author: string): string {
+    if (author) {
+      name = name + ' - ' + author;
+    }
+    name = name.replace(new RegExp('&quot;', 'g'), '"');
+    name = name.replace(new RegExp('&#39;', 'g'), '\'');
+    name = name.replace(new RegExp('&#232;', 'g'), 'è');
+    name = name.replace(new RegExp('&#211;', 'g'), 'ó');
+    name = name.replace(new RegExp('&#233;', 'g'), 'é');
+    name = name.replace(new RegExp('&amp;', 'g'), '&');
+    if (name.length > 110) {
+      name = name.slice(0, 110) + '...';
+    }
+    return name;
+  }
+
+}

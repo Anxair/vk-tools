@@ -52,7 +52,9 @@
   },
   "GENERAL": {
     "BTN_ACCEPT": "Принять",
-    "BTN_CANCEL": "Отмена"
+    "BTN_CANCEL": "Отмена",
+    "SEARCH": "Поиск...",
+    "RELOAD": "Обновить"
   },
   "RELATION": {
     "UNKNOWN": "Не указано",

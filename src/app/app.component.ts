@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CookieService} from 'ngx-cookie-service';
-import {TestService} from './services/test.service';
+import {MainService} from './services/main.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,7 @@ import {TestService} from './services/test.service';
 export class AppComponent implements OnInit {
 
   constructor(private cookieService: CookieService,
-              private testService: TestService) {
+              private testService: MainService) {
   }
 
   ngOnInit(): void {

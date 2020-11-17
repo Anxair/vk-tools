@@ -4,12 +4,10 @@ import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {User} from 'vkontakte-api';
 import {CookieService} from 'ngx-cookie-service';
 import {HttpClient} from '@angular/common/http';
-import {Track} from '../dto/Track';
 import {Router} from '@angular/router';
 
-
 @Injectable({providedIn: 'root'})
-export class TestService {
+export class MainService {
 
   private currentUser: Subject<User> = new BehaviorSubject(null);
   private _user: Observable<User> = this.currentUser.asObservable();
@@ -22,9 +20,7 @@ export class TestService {
 
   }
 
-  getUserMusic(id: string): Observable<Track[]> {
-    return this._http.get<Track[]>('http://localhost:4201/user/get-audio/' + id);
-  }
+
 
   getUserInfo() {
     this.apiProvider.execute(api => api.users.get({

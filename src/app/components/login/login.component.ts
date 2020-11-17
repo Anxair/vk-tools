@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {TestService} from '../../services/test.service';
+import {MainService} from '../../services/main.service';
 import {ApiProviderService} from '../../services/api-provider.service';
 import {HttpClient} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service';
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   UserInfoPartEnum = UserInfoPartEnum;
 
   constructor(private route: ActivatedRoute,
-              private testService: TestService,
+              private testService: MainService,
               private apiProvider: ApiProviderService,
               private _http: HttpClient,
               private cookieService: CookieService) {

@@ -4,7 +4,7 @@ import {LanguagePipe} from '../../pipes/language-pipe';
 import {TranslateService} from '@ngx-translate/core';
 import {CookieService} from 'ngx-cookie-service';
 import {Router} from '@angular/router';
-import {TestService} from '../../services/test.service';
+import {MainService} from '../../services/main.service';
 
 @Component({
   selector: 'app-menu-header',
@@ -22,7 +22,7 @@ export class MenuHeaderComponent implements OnInit {
               public translate: TranslateService,
               public cookieService: CookieService,
               public dialog: MatDialog,
-              public testService: TestService,
+              public testService: MainService,
               public router: Router) {
     translate.use(this.language);
   }
@@ -46,7 +46,7 @@ export class MenuHeaderComponent implements OnInit {
   }
 
   login(): void {
-    window.location.href = 'https://oauth.vk.com/authorize?client_id=7633891&scope=friends,photos,wall,video,audio,groups,offline&redirect_uri=http://localhost:4200/auth&display=popup&response_type=token';
+    window.location.href = 'https://oauth.vk.com/authorize?client_id=7633891&scope=friends,audio,groups&redirect_uri=http://localhost:4200/auth&display=popup&response_type=token';
   }
 
   selectLanguage(lang: string, i: number): void {

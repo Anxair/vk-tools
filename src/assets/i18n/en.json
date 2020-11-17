@@ -56,7 +56,9 @@
   },
   "GENERAL": {
     "BTN_ACCEPT": "Accept",
-    "BTN_CANCEL": "Cancel"
+    "BTN_CANCEL": "Cancel",
+    "SEARCH": "Search...",
+    "RELOAD": "Reload"
   },
   "RELATION": {
     "UNKNOWN": "Unknown",
