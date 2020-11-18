@@ -46,6 +46,11 @@
     </div>
 
     <div class="card-body col-6 inner-card-height overflow-auto">
+      <div class="mt-2 mr-3 mb-3 mat-form-field-flex justify-content-end">
+        <button [disabled]="isDownloadPlaylist" class="btn btn-outline-light"
+                (click)="downloadPlayList()">{{'GENERAL.DOWNLOAD_PL'|translate}}
+        </button>
+      </div>
       <ngx-audio-player #audioPlayerComponent [playlist]="playList"
                         [pageSizeOptions]="[10, 5, 15]"></ngx-audio-player>
     </div>

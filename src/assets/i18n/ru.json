@@ -54,7 +54,8 @@
     "BTN_ACCEPT": "Принять",
     "BTN_CANCEL": "Отмена",
     "SEARCH": "Поиск...",
-    "RELOAD": "Обновить"
+    "RELOAD": "Обновить",
+    "DOWNLOAD_PL": "Скачать плейлист"
   },
   "RELATION": {
     "UNKNOWN": "Не указано",

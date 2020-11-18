@@ -5,9 +5,11 @@ import {TrackInfo} from '../../dto/TrackInfo';
 import {MusicService} from '../../services/music.service';
 import {SymbolReplacerPipe} from '../../pipes/utils.pipe';
 import {MatSelectionList} from '@angular/material/list';
-import {Subscription} from 'rxjs';
-import {FileSaverService} from 'ngx-filesaver';
+import {forkJoin, Subscription} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
+import * as JSZip from 'jszip';
+import {map} from 'rxjs/operators';
+import {FileSaverService} from 'ngx-filesaver';
 
 
 @Component({
@@ -20,6 +22,7 @@ export class MusicListComponent implements OnInit, OnDestroy, AfterViewInit {
   playList: Track[] = [];
   filteredTracks: TrackInfo[] = [];
   isDownloadTracks: boolean = false;
+  isDownloadPlaylist: boolean = false;
   searchText: string;
   selected: boolean = false;
   @ViewChild('songs') songs: MatSelectionList;
@@ -38,7 +41,16 @@ export class MusicListComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnInit(): void {
     this.isDownloadTracks = true;
     this.musicService.getUserMusic(this.cookieService.get('user_id')).subscribe(value => {
-      this.getMusicFromServer(value);
+      this.filteredTracks = value;
+      this.isDownloadTracks = false;
+    });
+    this.playList.push(...this.musicService.getPlaylist());
+    this.playList.forEach(track => {
+      this.filteredTracks.forEach(value => {
+        if (track.link == value.mp3) {
+          value.addToPlayList = true;
+        }
+      });
     });
   }
 
@@ -52,11 +64,11 @@ export class MusicListComponent implements OnInit, OnDestroy, AfterViewInit {
     if (this.timeSubscription) {
       this.timeSubscription.unsubscribe();
     }
+    this.musicService.setPlaylist(this.playList);
   }
 
 
   searchTrack($event: string) {
-    console.log($event);
     if (!$event) {
       this.filteredTracks.forEach(value => {
         value.visible = true;
@@ -73,14 +85,9 @@ export class MusicListComponent implements OnInit, OnDestroy, AfterViewInit {
   reloadMusicList() {
     this.isDownloadTracks = true;
     this.musicService.reloadUserMusic(this.cookieService.get('user_id')).subscribe(value => {
-      this.getMusicFromServer(value);
+      this.filteredTracks = value;
+      this.isDownloadTracks = false;
     });
-  }
-
-
-  getMusicFromServer(value: TrackInfo[]) {
-    this.filteredTracks = value;
-    this.isDownloadTracks = false;
   }
 
   formPlaylist(song: TrackInfo) {
@@ -91,7 +98,9 @@ export class MusicListComponent implements OnInit, OnDestroy, AfterViewInit {
       song.addToPlayList = true;
       this.playList.push(songForPlaylist);
     } else {
-      this.audioPlayer.play();
+      if (this.audioPlayer.isPlaying) {
+        this.audioPlayer.play();
+      }
       this.playList.splice(this.playList.findIndex(value => value.link == songForPlaylist.link), 1);
       this.filteredTracks.forEach(value1 => {
         if (value1.mp3 == songForPlaylist.link) {
@@ -151,4 +160,28 @@ export class MusicListComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
 
+  downloadPlayList() {
+    this.isDownloadPlaylist = true;
+    forkJoin(this.playList
+      .map(track => this._http.get(track.link, {
+        observe: 'response',
+        responseType: 'blob'
+      })
+        .pipe(
+          map(value => {
+            return {name: track.title, blob: value.body};
+          }))))
+      .subscribe(value => {
+        let zip = new JSZip();
+        let songFolder = zip.folder('audio');
+        for (let i = 0; i < value?.length; i++) {
+          songFolder.file(value[i].name + '.mp3', value[i].blob, {base64: true});
+        }
+        zip.generateAsync({type: 'blob'})
+          .then(val => {
+            this._FileSaverService.save(val, 'songs.zip');
+            this.isDownloadPlaylist = false;
+          });
+      });
+  }
 }

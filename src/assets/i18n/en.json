@@ -58,7 +58,8 @@
     "BTN_ACCEPT": "Accept",
     "BTN_CANCEL": "Cancel",
     "SEARCH": "Search...",
-    "RELOAD": "Reload"
+    "RELOAD": "Reload",
+    "DOWNLOAD_PL": "Download playlist"
   },
   "RELATION": {
     "UNKNOWN": "Unknown",

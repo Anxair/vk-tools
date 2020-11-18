@@ -2,14 +2,18 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {TrackInfo} from '../dto/TrackInfo';
 import {HttpClient} from '@angular/common/http';
-import {map, shareReplay, tap} from 'rxjs/operators';
+import {shareReplay, tap} from 'rxjs/operators';
+import {Track} from 'ngx-audio-player';
+import {CookieService} from 'ngx-cookie-service';
 
 @Injectable({providedIn: 'root'})
 export class MusicService {
 
   private mapTrackList: Map<string, Observable<TrackInfo[]>> = new Map<string, Observable<TrackInfo[]>>();
+  private mapPlaylist: Map<string, Track[]> = new Map<string, Track[]>();
 
-  constructor(private _http: HttpClient) {
+  constructor(private _http: HttpClient,
+              private cookieService: CookieService) {
   }
 
 
@@ -35,4 +39,14 @@ export class MusicService {
     return this.mapTrackList.get(id);
   }
 
+  getPlaylist() {
+    if (!this.mapPlaylist.get(this.cookieService.get('user_id'))) {
+      return [];
+    }
+    return this.mapPlaylist.get(this.cookieService.get('user_id'));
+  }
+
+  setPlaylist(playlist: Track[]) {
+    this.mapPlaylist.set(this.cookieService.get('user_id'), playlist);
+  }
 }
