@@ -33,7 +33,9 @@
           <ng-container *ngFor="let song of filteredTracks">
             <mat-list-option [value]="song" (click)="formPlaylist(song)" *ngIf="song.visible">
               <div class="mat-form-field-flex">
-                <div>{{song.title|symbolReplacer: song.author}}</div>
+                <i-bs (click)="downloadTack(song, $event)" name="download"
+                      [ngStyle]="{'color':song.isDownload ? 'red' : '' }"></i-bs>
+                <div class="ml-3">{{song.title|symbolReplacer: song.author}}</div>
                 <i-bs *ngIf="song.addToPlayList" class="ml-3 " name="check2"></i-bs>
               </div>
               <mat-divider></mat-divider>

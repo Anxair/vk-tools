@@ -6,7 +6,8 @@ import {MusicService} from '../../services/music.service';
 import {SymbolReplacerPipe} from '../../pipes/utils.pipe';
 import {MatSelectionList} from '@angular/material/list';
 import {Subscription} from 'rxjs';
-import {MatSliderChange} from '@angular/material/slider';
+import {FileSaverService} from 'ngx-filesaver';
+import {HttpClient} from '@angular/common/http';
 
 
 @Component({
@@ -29,7 +30,9 @@ export class MusicListComponent implements OnInit, OnDestroy, AfterViewInit {
 
   constructor(private musicService: MusicService,
               private cookieService: CookieService,
-              private symbolReplacerPipe: SymbolReplacerPipe) {
+              private symbolReplacerPipe: SymbolReplacerPipe,
+              private _FileSaverService: FileSaverService,
+              private _http: HttpClient) {
   }
 
   ngOnInit(): void {
@@ -131,6 +134,20 @@ export class MusicListComponent implements OnInit, OnDestroy, AfterViewInit {
     } else {
       this.audioPlayer.audioPlayerService.setPlaylist(this.playList);
     }
+  }
+
+
+  downloadTack(song: TrackInfo, $event: Event) {
+    $event.stopPropagation();
+    const fileName = song.title;
+    this._http.get(song.mp3, {
+      observe: 'response',
+      responseType: 'blob'
+    }).subscribe(res => {
+      song.isDownload = true;
+      this._FileSaverService.save(res.body, fileName);
+    });
+    return;
   }
 
 

@@ -5,5 +5,6 @@ export class TrackInfo {
   cover: string;
   visible: boolean = true;
   addToPlayList: boolean = false;
+  isDownload: boolean = false;
 }
 
