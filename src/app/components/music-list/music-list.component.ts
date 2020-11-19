@@ -87,6 +87,7 @@ export class MusicListComponent implements OnInit, OnDestroy, AfterViewInit {
     this.musicService.reloadUserMusic(this.cookieService.get('user_id')).subscribe(value => {
       this.filteredTracks = value;
       this.isDownloadTracks = false;
+      this.musicService.setPlaylist([]);
     });
   }
 

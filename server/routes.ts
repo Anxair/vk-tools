@@ -1,5 +1,6 @@
 import * as express from 'express';
-import {getMusic} from './server';
+import {getMusic} from './get-music';
+
 
 export const routes = express.Router();
 

@@ -1,0 +1,37 @@
+# curl 'https://vk.com/al_audio.php?act=reload_audio'
+#  -H 'authority: vk.com'
+#  -H 'pragma: no-cache'
+#  -H 'cache-control: no-cache'
+#  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36'
+#  -H 'x-requested-with: XMLHttpRequest'
+#  -H 'content-type: application/x-www-form-urlencoded'
+#  -H 'accept: */*'
+#  -H 'origin: https://vk.com'
+#  -H 'sec-fetch-site: same-origin'
+#  -H 'sec-fetch-mode: cors'
+#  -H 'sec-fetch-dest: empty'
+#  -H 'referer: https://vk.com/al_audio.php'
+#  -H 'accept-language: en-US,en;q=0.9'
+#  -H 'cookie: remixlang=3; remixbdr=0; remixstid=185093763_lZM4z5aN63Icwq8jKjvHFcrSlnD6wAzOQtjD5qZeHyX; remixlhk=0d862d455a1c6b7d70; remixflash=0.0.0; remixscreen_width=2560; remixscreen_height=1440; remixscreen_dpr=1.5; remixscreen_depth=24; remixscreen_orient=1; remixgp=57cbd03e57e9ef45f0577d317f7a326a; remixdt=0; tmr_lvid=f32515afd703ee18b877dbaad30f9b43; tmr_lvidTS=1605726384506; __gfp_64b=OiVwbbHZCUdTGw2R09gAkuY.yrv.byzw.VGpjcc1ZzX.z7|1605726385; remixsid=56934d537edd714ef9ac565bee0217c3e59ccf39277a5539babaf9ebfab69; remixusid=Mjc2NjM1ZmJiYzM0MWJiYzAyY2YwODBk; remixseenads=3; remixvoice=0; remixua=41%7C-1%7C191%7C3663470259; remixcurr_audio=5920343_207386920; tmr_reqNum=22; tmr_detect=0%7C1605733170267; remixscreen_winzoom=2.21'
+#  --data-raw 'al=1&ids=5920343_207386920_01309e5beeace63ea3_c40425e779ccf6361c%2C5920343_207385951_9c5b68cf1a4214b92f_89fc9425ce7d7278a6%2C5920343_207385915_20167c1ddb96b31a20_2f193da3e6dd0dfb83%2C5920343_207384664_cb038b1432bedbbbe8_4ea4fb0fa7001749e6%2C5920343_207296569_91fae5d6d637b06d50_913eb233e9d5591a9a'
+#  --compressed
+POST https://vk.com/al_audio.php?act=reload_audio
+authority: vk.com
+pragma: no-cache
+cache-control: no-cache
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36
+x-requested-with: XMLHttpRequest
+accept: */*
+origin: https://vk.com
+sec-fetch-site: same-origin
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+referer: https://vk.com/al_audio.php
+accept-language: en-US,en;q=0.9
+cookie: remixlang=3; remixbdr=0; remixstid=185093763_lZM4z5aN63Icwq8jKjvHFcrSlnD6wAzOQtjD5qZeHyX; remixlhk=0d862d455a1c6b7d70; remixflash=0.0.0; remixscreen_width=2560; remixscreen_height=1440; remixscreen_dpr=1.5; remixscreen_depth=24; remixscreen_orient=1; remixgp=57cbd03e57e9ef45f0577d317f7a326a; remixdt=0; tmr_lvid=f32515afd703ee18b877dbaad30f9b43; tmr_lvidTS=1605726384506; __gfp_64b=OiVwbbHZCUdTGw2R09gAkuY.yrv.byzw.VGpjcc1ZzX.z7|1605726385; remixsid=56934d537edd714ef9ac565bee0217c3e59ccf39277a5539babaf9ebfab69; remixusid=Mjc2NjM1ZmJiYzM0MWJiYzAyY2YwODBk; remixseenads=3; remixvoice=0; remixua=41%7C-1%7C191%7C3663470259; remixcurr_audio=5920343_207386920; tmr_reqNum=22; tmr_detect=0%7C1605733170267; remixscreen_winzoom=2.21
+Content-Type: application/x-www-form-urlencoded
+
+al=1&ids=5920343_456239435_4aa99e495789b0d081_7979a1e1c322a1b54c,5920343_456239434_ddeaf79129cca62846_b620d4c4db2048462c,5920343_456239433_7301b2f78717405bca_802a62aaa77855df54,5920343_456239432_48e7afe6a01f09d50c_b23bc0c0046a41de15,5920343_456239431_761c0925f0d42f7a1c_ff08be65da7930213d,5920343_456239430_d2ba38c2e6720b5bdd_27b5a8bc519b3518dc,5920343_456239429_93fd77bf711907e7c3_116a4c51c33305d3b6,5920343_456239428_4a3902b290eac9315b_5d40f4a918ee1da761,5920343_456239427_be91c701112d5e9b68_0b5c9e3ab96dab0248,5920343_456239426_c9aa921aaeb3f03675_777cfaf3ec89e4d0f8
+
+###
+
