@@ -11,7 +11,7 @@ export async function getMusic(id: string) {
   await parse.launch();
 
 
-  const tracks: Track[] = await parse.run(+id, 20); // 1. target-id, 2. max-tracks
+  const tracks: Track[] = await parse.run(+id, 0); // 1. target-id, 2. max-tracks
   await parse.exit();
   return tracks;
 }
