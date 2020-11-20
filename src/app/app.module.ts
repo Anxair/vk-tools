@@ -45,6 +45,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {FormsModule} from '@angular/forms';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatCardModule} from '@angular/material/card';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -99,6 +101,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     MatInputModule,
     MatIconModule,
     MatBadgeModule,
+    MatTooltipModule,
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {
@@ -107,7 +110,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    FormsModule
+    FormsModule,
+    MatCardModule
   ],
   providers: [
     CookieService,

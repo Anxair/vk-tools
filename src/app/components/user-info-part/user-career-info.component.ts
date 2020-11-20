@@ -15,7 +15,7 @@ import {Career, User} from 'vkontakte-api';
           </li>
         </ul>
       </div>
-
+      <div class="mat-h3" *ngIf="_career.length==0">{{'USER_FIELD.NO_INFORMATION'|translate}}</div>
     </ng-container>
   `
 })

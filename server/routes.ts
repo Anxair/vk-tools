@@ -11,6 +11,7 @@ routes.get('/user/get-audio/:id', (req, res) => {
     res.send(value);
   }).catch(err => {
     console.log('❌ ' + err.message);
+    console.log(err);
     process.exitCode;
   });
 });

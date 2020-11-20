@@ -23,6 +23,7 @@ export class MusicListComponent implements OnInit, OnDestroy, AfterViewInit {
   filteredTracks: TrackInfo[] = [];
   isDownloadTracks: boolean = false;
   isDownloadPlaylist: boolean = false;
+  isSelectAll: boolean = false;
   searchText: string;
   selected: boolean = false;
   @ViewChild('songs') songs: MatSelectionList;
@@ -47,7 +48,7 @@ export class MusicListComponent implements OnInit, OnDestroy, AfterViewInit {
     this.playList.push(...this.musicService.getPlaylist());
     this.playList.forEach(track => {
       this.filteredTracks.forEach(value => {
-        if (track.link == value.mp3) {
+        if (track.link == value.link) {
           value.addToPlayList = true;
         }
       });
@@ -94,7 +95,7 @@ export class MusicListComponent implements OnInit, OnDestroy, AfterViewInit {
   formPlaylist(song: TrackInfo) {
     let songForPlaylist: Track = new Track();
     songForPlaylist.title = this.symbolReplacerPipe.transform(song.title, null);
-    songForPlaylist.link = song.mp3;
+    songForPlaylist.link = song.link;
     if (!song.addToPlayList) {
       song.addToPlayList = true;
       this.playList.push(songForPlaylist);
@@ -104,7 +105,7 @@ export class MusicListComponent implements OnInit, OnDestroy, AfterViewInit {
       }
       this.playList.splice(this.playList.findIndex(value => value.link == songForPlaylist.link), 1);
       this.filteredTracks.forEach(value1 => {
-        if (value1.mp3 == songForPlaylist.link) {
+        if (value1.link == songForPlaylist.link) {
           value1.addToPlayList = false;
         }
       });
@@ -113,12 +114,24 @@ export class MusicListComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   selectAllSong() {
+    this.isSelectAll = true;
     this.songs.selectAll();
     this.playList = this.filteredTracks.map(song => {
       song.addToPlayList = true;
-      return {title: this.symbolReplacerPipe.transform(song.title, null), link: song.mp3};
+      return {title: this.symbolReplacerPipe.transform(song.title, null), link: song.link};
     });
+    this.changePlayList();
+  }
 
+
+  deselectAllSong() {
+    this.isSelectAll = false;
+    this.songs.deselectAll();
+    this.filteredTracks.map(song => {
+      song.addToPlayList = false;
+    });
+    this.playList = [];
+    this.changePlayList();
   }
 
   showTrackInPlayList() {
@@ -150,7 +163,7 @@ export class MusicListComponent implements OnInit, OnDestroy, AfterViewInit {
   downloadTack(song: TrackInfo, $event: Event) {
     $event.stopPropagation();
     const fileName = song.title;
-    this._http.get(song.mp3, {
+    this._http.get(song.link, {
       observe: 'response',
       responseType: 'blob'
     }).subscribe(res => {
@@ -185,4 +198,5 @@ export class MusicListComponent implements OnInit, OnDestroy, AfterViewInit {
           });
       });
   }
+
 }

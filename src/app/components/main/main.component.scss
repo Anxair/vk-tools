@@ -1,0 +1,50 @@
+blockquote {
+  margin: 0;
+  background: #FFF4E0;
+  color: #474C4F;
+  padding: 30px;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+}
+
+blockquote:before {
+  content: open-quote;
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 14px;
+  color: #474C4F;
+  font-size: 20px;
+  background: #FFF4E0;
+  padding: 0 15px;
+}
+
+blockquote:after {
+  content: "";
+  position: absolute;
+  left: 15px;
+  top: 20px;
+  right: 15px;
+  height: 4px;
+  border-top: 1px dotted #474C4F;
+  border-bottom: 1px dotted #474C4F;
+}
+
+blockquote p {
+  font-size: 20px;
+  letter-spacing: .05em;
+  line-height: 1.4;
+}
+
+blockquote cite {
+  font-style: normal;
+  font-weight: 300;
+}
+
+.color-light {
+  color: #FFF4E0;
+}
+

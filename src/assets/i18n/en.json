@@ -52,14 +52,19 @@
     "GAMES": "Favorite games: ",
     "TV": "Favorite TV show: ",
     "QUOTES": "Favorite quotes: ",
-    "ABOUT": "About me: "
+    "ABOUT": "About me: ",
+    "NO_INFORMATION": "Information is absence"
   },
   "GENERAL": {
     "BTN_ACCEPT": "Accept",
     "BTN_CANCEL": "Cancel",
     "SEARCH": "Search...",
     "RELOAD": "Reload",
-    "DOWNLOAD_PL": "Download playlist"
+    "DOWNLOAD_PL": "Download playlist",
+    "SELECT_ALL": "Select all and add to the playlist",
+    "UNSELECT_ALL": "Unselect all and clear the playlist",
+    "SHOW": "Show selected",
+    "HIDE": "Hide selected"
   },
   "RELATION": {
     "UNKNOWN": "Unknown",
@@ -119,5 +124,14 @@
     "PAGES": "Number of subscriptions: ",
     "PHOTOS": "Number of photos: ",
     "VIDEOS": "Number of videos: "
+  },
+  "MAIN_PAGE": {
+    "ARTICLE_35": "The freedom to hold assemblies, meetings, street marches, demonstrations and pickets that do not disturb law and order or violate the rights of other citizens of the Republic of Belarus, shall be guaranteed by the State. The procedure for holding the above-mentioned events shall be determined by law.",
+    "CONSTITUTION": "Article 35 Constitution of the Republic of Belarus",
+    "AUTHOR": "Image author: ",
+    "STEP": "Step ",
+    "STEP_1": "They say it is a troublesome business: download music from VKontakte",
+    "STEP_2": "Other apps offer jogging and downloading only the one track at a time",
+    "STEP_3": "And we say: compose a playlist, download in one click and drive at full power"
   }
 }

@@ -1,7 +1,7 @@
 export class TrackInfo {
   title: string;
   author: string;
-  mp3: string;
+  link: string;
   cover: string;
   visible: boolean = true;
   addToPlayList: boolean = false;

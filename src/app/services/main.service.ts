@@ -21,7 +21,6 @@ export class MainService {
   }
 
 
-
   getUserInfo() {
     this.apiProvider.execute(api => api.users.get({
       userIds: ['id' + this.cookieService.get('user_id')],

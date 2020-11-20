@@ -22,6 +22,7 @@ import {User} from 'vkontakte-api';
           </li>
         </ul>
       </div>
+      <div class="mat-h3" *ngIf="user.schools.length==0 && user.universities.length==0">{{'USER_FIELD.NO_INFORMATION'|translate}}</div>
     </ng-container>
   `
 })
