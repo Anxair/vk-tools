@@ -19,7 +19,7 @@ export class MusicService {
 
   getUserMusic(id: string): Observable<TrackInfo[]> {
     if (!this.mapTrackList.get(id)) {
-      this.mapTrackList.set(id, this._http.get<TrackInfo[]>('http://localhost:4201/user/get-audio/' + id).pipe(shareReplay(1), tap(x => {
+      this.mapTrackList.set(id, this._http.get<TrackInfo[]>('/api/user/get-audio/' + id).pipe(shareReplay(1), tap(x => {
         x.forEach(value => {
           value.visible = true;
           value.addToPlayList = false;
@@ -30,7 +30,7 @@ export class MusicService {
   }
 
   reloadUserMusic(id: string): Observable<TrackInfo[]> {
-    this.mapTrackList.set(id, this._http.get<TrackInfo[]>('http://localhost:4201/user/get-audio/' + id).pipe(shareReplay(1), tap(x => {
+    this.mapTrackList.set(id, this._http.get<TrackInfo[]>('/api/user/get-audio/' + id).pipe(shareReplay(1), tap(x => {
       x.forEach(value => {
         value.visible = true;
         value.addToPlayList = false;

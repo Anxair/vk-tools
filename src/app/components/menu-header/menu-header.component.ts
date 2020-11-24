@@ -46,7 +46,7 @@ export class MenuHeaderComponent implements OnInit {
   }
 
   login(): void {
-    window.location.href = 'https://oauth.vk.com/authorize?client_id=7633891&scope=friends,audio,groups&redirect_uri=http://localhost:4200/auth&display=popup&response_type=token';
+    window.location.href = `https://oauth.vk.com/authorize?client_id=7633891&scope=friends,audio,groups&redirect_uri=${window.location.protocol}//${window.location.host}/auth&display=popup&response_type=token`;
   }
 
   selectLanguage(lang: string, i: number): void {
