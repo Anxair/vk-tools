@@ -14,11 +14,11 @@ async function getScrolledDownPage(page: Page) {
     };
     while (scrollY !== prevScrollY) {
       await scrollTo();
-      await page.waitFor(1000);
+      await page.waitForTimeout(1000);
     }
   };
   await scrollDown();
-  await page.waitFor(1000);
+  await page.waitForTimeout(1000);
 }
 
 export default getScrolledDownPage;

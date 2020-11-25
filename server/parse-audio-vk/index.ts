@@ -1,6 +1,6 @@
 import {Browser, Page} from 'puppeteer';
 import getScrolledDownPage from './get-scrolled-down-page';
-import puppeteer from 'puppeteer';
+import  puppeteer from 'puppeteer';
 import decode from './decoder/decode';
 import getMp3 from './get-mp3';
 import {AudioRecord, UrlLoader} from './url-loader';
@@ -46,7 +46,7 @@ class ParseAudios {
     console.log('login...');
     const page = await this.browser.newPage();
     await page.goto('https://vk.com/feed');
-    await page.waitFor('input[id=email]');
+    await page.waitForSelector('input[id=email]');
     await page.$eval(
       'input[id="email"]',
       (el, login) => ((el as HTMLInputElement).value = login),
@@ -58,7 +58,7 @@ class ParseAudios {
       this.config.user.password
     );
     await page.click('#login_button');
-    await page.waitFor('div.top_profile_name', {timeout: 10000}).catch(() => {
+    await page.waitForSelector('div.top_profile_name', {timeout: 10000}).catch(() => {
       throw new Error(
         'Timeout 10s \n Failed to auth, possible reasons: \n 1. Incorrect login or password \n 2. Showed captcha \n 3.' +
         ' Slowly internet \n' +
