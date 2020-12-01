@@ -2,13 +2,8 @@
   "name": "vk",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve --proxy-config=proxy.json",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
-    "serve": "concurrently \"ng serve\" \"server/node_modules/.bin/ts-node-dev server/server.ts\""
+    "start": "npx ng serve --proxy-config=proxy.json",
+    "build": "npx ng build"
   },
   "private": true,
   "dependencies": {
@@ -25,7 +20,6 @@
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
     "bootstrap": "^4.5.3",
-    "concurrently": "^5.3.0",
     "file-saver": "^2.0.2",
     "jszip": "^3.5.0",
     "ngx-audio-player": "^8.1.1",
@@ -55,7 +49,6 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
     "protractor": "~7.0.0",
-    "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~4.0.2"
   }

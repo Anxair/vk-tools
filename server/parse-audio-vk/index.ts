@@ -42,7 +42,10 @@ class ParseAudios {
   }
 
   async launch() {
-    this.browser = await puppeteer.launch({args: ['--no-sandbox']});
+    this.browser = await puppeteer.launch({
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+      executablePath: this.config.user.browserPath
+    });
     console.log('login...');
     const page = await this.browser.newPage();
     await page.goto('https://vk.com/feed');
@@ -130,6 +133,7 @@ export interface UserAuth {
   login: string;
   password: string;
   id: string;
+  browserPath: string;
 }
 
 export {ParseAudios};
