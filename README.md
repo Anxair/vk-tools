@@ -21,10 +21,12 @@ Node v12.18.2 required to run server!
 4. Build frontend (npm run build)
 5. Go to vk-tools/server 
 6. Run npm install
-7. You must fill the file "authorization.json": write login, password, user ID (information of VK account which will be used for getting music) and path to your browser.
+7. You must fill the file "authorization.json": write login, password, user ID - only number (information of VK account which will be used for getting music) and path to your browser.
 8. Build backend (npm run build)
 9. Run server (node dist/bundle.js)
 10. Navigate to localhost:4201
+
+Note: disabled two-factor authentification in VK.
 
 ## For developers
 
